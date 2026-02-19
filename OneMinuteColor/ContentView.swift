@@ -3,13 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.openURL) private var openURL
 
-    // Replace this with your published iCloud shortcut share link.
-    // The shortcut should:
-    // 1) Set Color Filters: Off
-    // 2) Wait: 60 seconds
-    // 3) Set Color Filters: On (Grayscale)
-    private let shortcutInstallURLString = "https://www.icloud.com/shortcuts/REPLACE_WITH_YOUR_LINK"
-    private let shortcutName = "One Minute Color"
+    private let actionHandler = ButtonActionHandler(configuration: .appDefault)
 
     var body: some View {
         VStack(spacing: 24) {
@@ -44,12 +38,14 @@ struct ContentView: View {
     }
 
     private func runShortcut() {
-        guard let url = ShortcutLinkBuilder.runShortcutURL(shortcutName: shortcutName) else { return }
-        openURL(url)
+        _ = actionHandler.startOneMinuteColorButtonTapped { url in
+            openURL(url)
+        }
     }
 
     private func installShortcut() {
-        guard let url = ShortcutLinkBuilder.installShortcutURL(from: shortcutInstallURLString) else { return }
-        openURL(url)
+        _ = actionHandler.installShortcutButtonTapped { url in
+            openURL(url)
+        }
     }
 }
