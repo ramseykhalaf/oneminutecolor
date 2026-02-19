@@ -7,14 +7,17 @@ struct StartOneMinuteColorControl: ControlWidget {
 
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(kind: Self.kind) {
-            ControlWidgetButton(action: StartOneMinuteColorControlIntent()) {
-                Label {
+            ControlWidgetButton(
+                action: StartOneMinuteColorControlIntent(),
+                label: {
                     Text("One Minute Color")
-                } icon: {
+                },
+                actionLabel: { _ in
                     Image("OneMinuteColorControlIcon")
-                        .renderingMode(.original)
+                        .resizable()
+                        .scaledToFit()
                 }
-            }
+            )
         }
         .displayName("One Minute Color")
         .description("Run One Minute Color from Control Center.")
