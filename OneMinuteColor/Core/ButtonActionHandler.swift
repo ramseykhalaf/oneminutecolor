@@ -18,6 +18,19 @@ public struct ButtonActionHandler {
     }
 
     @discardableResult
+    public func startOneMinuteColorButtonTappedWithCallback(openURL: (URL) -> Void) -> URL? {
+        guard let url = ShortcutLinkBuilder.runShortcutCallbackURL(
+            shortcutName: configuration.shortcutName,
+            callbackURLScheme: configuration.callbackURLScheme
+        ) else {
+            return nil
+        }
+
+        openURL(url)
+        return url
+    }
+
+    @discardableResult
     public func installShortcutButtonTapped(openURL: (URL) -> Void) -> URL? {
         guard let url = ShortcutLinkBuilder.installShortcutURL(from: configuration.shortcutInstallURLString) else {
             return nil

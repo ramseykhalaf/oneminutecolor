@@ -26,7 +26,12 @@ Your shortcut should do:
 
 1. Open app and tap `Install Shortcut` (one-time).
 2. Tap `Start 1 Minute Color`.
-3. In Shortcuts app, add that shortcut to Control Center for fast access.
+3. In Shortcuts app, add `Start 1 Minute Color` to Control Center for fast access.
+
+## Control Center button
+
+The app now publishes an App Shortcut named `Start 1 Minute Color`.
+On iOS 18+, add a `Shortcut` control in Control Center and pick this shortcut.
 
 ## Project
 

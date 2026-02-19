@@ -47,7 +47,8 @@ final class ButtonActionHandlerTests: XCTestCase {
         let handler = ButtonActionHandler(
             configuration: ShortcutConfiguration(
                 shortcutName: "   ",
-                shortcutInstallURLString: ShortcutConfiguration.appDefault.shortcutInstallURLString
+                shortcutInstallURLString: ShortcutConfiguration.appDefault.shortcutInstallURLString,
+                callbackURLScheme: "oneminutecolor"
             )
         )
         var openCallCount = 0
@@ -58,5 +59,19 @@ final class ButtonActionHandlerTests: XCTestCase {
 
         XCTAssertNil(returnedURL)
         XCTAssertEqual(openCallCount, 0)
+    }
+
+    func testStartOneMinuteColorButtonTapWithCallbackOpensCallbackURL() {
+        let handler = ButtonActionHandler(configuration: .appDefault)
+        var openedURL: URL?
+
+        let returnedURL = handler.startOneMinuteColorButtonTappedWithCallback { url in
+            openedURL = url
+        }
+
+        XCTAssertEqual(returnedURL?.scheme, "shortcuts")
+        XCTAssertEqual(returnedURL?.host, "x-callback-url")
+        XCTAssertEqual(openedURL?.scheme, "shortcuts")
+        XCTAssertEqual(openedURL?.host, "x-callback-url")
     }
 }

@@ -13,7 +13,37 @@
 		AA0000000000000000000004 /* Core/ShortcutLinkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000006 /* Core/ShortcutLinkBuilder.swift */; };
 		AA0000000000000000000005 /* Core/ShortcutConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000007 /* Core/ShortcutConfiguration.swift */; };
 		AA0000000000000000000006 /* Core/ButtonActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000008 /* Core/ButtonActionHandler.swift */; };
+		AA0000000000000000000007 /* Intents/StartOneMinuteColorIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000009 /* Intents/StartOneMinuteColorIntent.swift */; };
+		AA0000000000000000000008 /* Intents/OneMinuteColorAppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000A /* Intents/OneMinuteColorAppShortcuts.swift */; };
+		AA0000000000000000000009 /* OneMinuteColorControlBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000B /* OneMinuteColorControlBundle.swift */; };
+		AA000000000000000000000A /* OneMinuteColorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000C /* OneMinuteColorControl.swift */; };
+		AA000000000000000000000B /* OneMinuteColorControl.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000D /* OneMinuteColorControl.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA000000000000000000000C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CC0000000000000000000004 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AA000000000000000000000B /* OneMinuteColorControl.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXContainerItemProxy section */
+		990000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B2C3D4E5F6000000000002;
+			remoteInfo = OneMinuteColorControl;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BB0000000000000000000001 /* OneMinuteColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneMinuteColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +54,24 @@
 		BB0000000000000000000006 /* Core/ShortcutLinkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/ShortcutLinkBuilder.swift; sourceTree = "<group>"; };
 		BB0000000000000000000007 /* Core/ShortcutConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/ShortcutConfiguration.swift; sourceTree = "<group>"; };
 		BB0000000000000000000008 /* Core/ButtonActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/ButtonActionHandler.swift; sourceTree = "<group>"; };
+		BB0000000000000000000009 /* Intents/StartOneMinuteColorIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents/StartOneMinuteColorIntent.swift; sourceTree = "<group>"; };
+		BB000000000000000000000A /* Intents/OneMinuteColorAppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents/OneMinuteColorAppShortcuts.swift; sourceTree = "<group>"; };
+		BB000000000000000000000B /* OneMinuteColorControlBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinuteColorControlBundle.swift; sourceTree = "<group>"; };
+		BB000000000000000000000C /* OneMinuteColorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinuteColorControl.swift; sourceTree = "<group>"; };
+		BB000000000000000000000D /* OneMinuteColorControl.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneMinuteColorControl.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB000000000000000000000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB000000000000000000000F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CC0000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC0000000000000000000006 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0000000000000000000002 /* OneMinuteColor */,
+				DD0000000000000000000004 /* OneMinuteColorControl */,
 				DD0000000000000000000003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +98,8 @@
 				BB0000000000000000000006 /* Core/ShortcutLinkBuilder.swift */,
 				BB0000000000000000000007 /* Core/ShortcutConfiguration.swift */,
 				BB0000000000000000000008 /* Core/ButtonActionHandler.swift */,
+				BB0000000000000000000009 /* Intents/StartOneMinuteColorIntent.swift */,
+				BB000000000000000000000A /* Intents/OneMinuteColorAppShortcuts.swift */,
 				BB0000000000000000000004 /* Assets.xcassets */,
 				BB0000000000000000000005 /* Info.plist */,
 			);
@@ -63,8 +110,20 @@
 			isa = PBXGroup;
 			children = (
 				BB0000000000000000000001 /* OneMinuteColor.app */,
+				BB000000000000000000000D /* OneMinuteColorControl.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DD0000000000000000000004 /* OneMinuteColorControl */ = {
+			isa = PBXGroup;
+			children = (
+				BB000000000000000000000B /* OneMinuteColorControlBundle.swift */,
+				BB000000000000000000000C /* OneMinuteColorControl.swift */,
+				BB000000000000000000000F /* Assets.xcassets */,
+				BB000000000000000000000E /* Info.plist */,
+			);
+			path = OneMinuteColorControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,15 +136,34 @@
 				CC0000000000000000000003 /* Sources */,
 				CC0000000000000000000001 /* Frameworks */,
 				CC0000000000000000000002 /* Resources */,
+				CC0000000000000000000004 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				990000000000000000000002 /* PBXTargetDependency */,
 			);
 			name = OneMinuteColor;
 			productName = OneMinuteColor;
 			productReference = BB0000000000000000000001 /* OneMinuteColor.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A1B2C3D4E5F6000000000002 /* OneMinuteColorControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 110000000000000000000003 /* Build configuration list for PBXNativeTarget "OneMinuteColorControl" */;
+			buildPhases = (
+				CC0000000000000000000005 /* Sources */,
+				CC0000000000000000000006 /* Frameworks */,
+				CC0000000000000000000007 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneMinuteColorControl;
+			productName = OneMinuteColorControl;
+			productReference = BB000000000000000000000D /* OneMinuteColorControl.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +176,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					A1B2C3D4E5F6000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A1B2C3D4E5F6000000000002 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -116,6 +197,7 @@
 			projectRoot = "";
 			targets = (
 				A1B2C3D4E5F6000000000001 /* OneMinuteColor */,
+				A1B2C3D4E5F6000000000002 /* OneMinuteColorControl */,
 			);
 		};
 /* End PBXProject section */
@@ -126,6 +208,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA0000000000000000000003 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC0000000000000000000007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000000000000000000000C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +231,29 @@
 				AA0000000000000000000004 /* Core/ShortcutLinkBuilder.swift in Sources */,
 				AA0000000000000000000005 /* Core/ShortcutConfiguration.swift in Sources */,
 				AA0000000000000000000006 /* Core/ButtonActionHandler.swift in Sources */,
+				AA0000000000000000000007 /* Intents/StartOneMinuteColorIntent.swift in Sources */,
+				AA0000000000000000000008 /* Intents/OneMinuteColorAppShortcuts.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC0000000000000000000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000009 /* OneMinuteColorControlBundle.swift in Sources */,
+				AA000000000000000000000A /* OneMinuteColorControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		990000000000000000000002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B2C3D4E5F6000000000002 /* OneMinuteColorControl */;
+			targetProxy = 990000000000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FF0000000000000000000001 /* Debug */ = {
@@ -263,6 +372,56 @@
 			};
 			name = Release;
 		};
+		FF0000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HZS67ZUBTE;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OneMinuteColorControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramseykhalaf.oneminutecolor.control;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF0000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HZS67ZUBTE;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OneMinuteColorControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramseykhalaf.oneminutecolor.control;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -280,6 +439,15 @@
 			buildConfigurations = (
 				FF0000000000000000000003 /* Debug */,
 				FF0000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		110000000000000000000003 /* Build configuration list for PBXNativeTarget "OneMinuteColorControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF0000000000000000000005 /* Debug */,
+				FF0000000000000000000006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
