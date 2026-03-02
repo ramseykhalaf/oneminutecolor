@@ -23,6 +23,9 @@ build/
 .build/
 .swiftpm/
 
+# Environment
+.env
+
 # Common editor/runtime noise
 *.swp
 *.swo

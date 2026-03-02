@@ -32,6 +32,10 @@ case "${1:-}" in
   -h|--help) usage; exit 0 ;;
 esac
 
+if [[ -f .env ]]; then
+  set -a; source .env; set +a
+fi
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --api-key) API_KEY_ID="$2"; shift 2 ;;
