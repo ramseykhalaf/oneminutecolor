@@ -10,17 +10,21 @@ LOG="/tmp/oneminutecolor-release.log"
 
 usage() {
   cat <<USAGE
-Usage: ./release_testflight.sh [--apple-id <email>]
+Usage: ./release_testflight.sh --api-key <key-id> --issuer <issuer-id>
 
 Builds, archives, exports, and uploads to TestFlight.
 
 Prerequisites:
-  Store your app-specific password once:
-    xcrun altool --store-password-in-keychain-item AC_PASSWORD \\
-      -u you@example.com -p "xxxx-xxxx-xxxx-xxxx"
+  1. Create an API key at App Store Connect > Users and Access > Integrations
+  2. Save the .p8 file to ~/.appstoreconnect/private_keys/AuthKey_<KEY_ID>.p8
+
+Options:
+  --api-key   App Store Connect API Key ID
+  --issuer    App Store Connect Issuer ID
 
 Environment overrides:
-  APPLE_ID   Your Apple ID email (or pass --apple-id)
+  API_KEY_ID        (or pass --api-key)
+  API_ISSUER_ID     (or pass --issuer)
 USAGE
 }
 
@@ -30,13 +34,19 @@ esac
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --apple-id) APPLE_ID="$2"; shift 2 ;;
+    --api-key) API_KEY_ID="$2"; shift 2 ;;
+    --issuer)  API_ISSUER_ID="$2"; shift 2 ;;
     *) echo "Unknown option: $1" >&2; exit 1 ;;
   esac
 done
 
-APPLE_ID="${APPLE_ID:-${APPLE_ID_ENV:-}}"
-[[ -n "$APPLE_ID" ]] || { echo "Set APPLE_ID env var or pass --apple-id <email>" >&2; exit 1; }
+API_KEY_ID="${API_KEY_ID:-}"
+API_ISSUER_ID="${API_ISSUER_ID:-}"
+[[ -n "$API_KEY_ID" ]]   || { echo "Pass --api-key <key-id> or set API_KEY_ID" >&2; exit 1; }
+[[ -n "$API_ISSUER_ID" ]] || { echo "Pass --issuer <issuer-id> or set API_ISSUER_ID" >&2; exit 1; }
+
+KEY_FILE="$HOME/.appstoreconnect/private_keys/AuthKey_${API_KEY_ID}.p8"
+[[ -f "$KEY_FILE" ]] || { echo "API key not found: $KEY_FILE" >&2; exit 1; }
 
 for cmd in xcodebuild xcrun; do
   command -v "$cmd" >/dev/null || { echo "Missing: $cmd" >&2; exit 1; }
@@ -52,6 +62,10 @@ xcodebuild \
   -scheme "$SCHEME" \
   -destination "generic/platform=iOS" \
   -archivePath "$ARCHIVE_PATH" \
+  -allowProvisioningUpdates \
+  -authenticationKeyPath "$KEY_FILE" \
+  -authenticationKeyID "$API_KEY_ID" \
+  -authenticationKeyIssuerID "$API_ISSUER_ID" \
   archive >"$LOG" 2>&1 \
   || { echo "Archive failed. Tail of $LOG:" >&2; tail -n 40 "$LOG" >&2; exit 1; }
 
@@ -60,6 +74,10 @@ xcodebuild -exportArchive \
   -archivePath "$ARCHIVE_PATH" \
   -exportPath "$EXPORT_PATH" \
   -exportOptionsPlist "$EXPORT_OPTIONS" \
+  -allowProvisioningUpdates \
+  -authenticationKeyPath "$KEY_FILE" \
+  -authenticationKeyID "$API_KEY_ID" \
+  -authenticationKeyIssuerID "$API_ISSUER_ID" \
   >>"$LOG" 2>&1 \
   || { echo "Export failed. Tail of $LOG:" >&2; tail -n 40 "$LOG" >&2; exit 1; }
 
@@ -70,8 +88,8 @@ echo "Uploading $IPA..."
 xcrun altool --upload-app \
   -f "$IPA" \
   -t ios \
-  -u "$APPLE_ID" \
-  -p @keychain:AC_PASSWORD \
+  --apiKey "$API_KEY_ID" \
+  --apiIssuer "$API_ISSUER_ID" \
   || { echo "Upload failed." >&2; exit 1; }
 
 echo "Done. Build uploaded to TestFlight."
