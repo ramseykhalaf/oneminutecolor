@@ -49,8 +49,8 @@ echo "Clean building..."
 xcodebuild -project "$PROJECT" -scheme "$SCHEME" -destination "id=$DEVICE_UDID" -derivedDataPath "$DD" clean build >"$LOG" 2>&1 \
   || { echo "Build failed. Tail of $LOG:" >&2; tail -n 80 "$LOG" >&2; exit 1; }
 
-APP="$(find "$DD/Build/Products/Debug-iphoneos" -maxdepth 1 -type d -name '*.app' | head -n1)"
-[[ -d "${APP:-}" ]] || { echo "No .app found in $DD/Build/Products/Debug-iphoneos" >&2; exit 1; }
+APP="$(find "$DD/Build/Products" -maxdepth 2 -type d -name '*.app' | head -n1)"
+[[ -d "${APP:-}" ]] || { echo "No .app found in $DD/Build/Products" >&2; exit 1; }
 
 echo "Installing..."
 xcrun devicectl device install app --device "$DEVICE_ID" "$APP" >/dev/null
