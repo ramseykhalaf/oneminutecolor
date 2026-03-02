@@ -21,6 +21,16 @@
 		AA000000000000000000000C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		990000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B2C3D4E5F6000000000002;
+			remoteInfo = OneMinuteColorControl;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		CC0000000000000000000004 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -34,16 +44,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXContainerItemProxy section */
-		990000000000000000000001 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE0000000000000000000001 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A1B2C3D4E5F6000000000002;
-			remoteInfo = OneMinuteColorControl;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BB0000000000000000000001 /* OneMinuteColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneMinuteColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,7 +334,7 @@
 				DEVELOPMENT_TEAM = HZS67ZUBTE;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = OneMinuteColor/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,7 +344,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -358,7 +358,7 @@
 				DEVELOPMENT_TEAM = HZS67ZUBTE;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = OneMinuteColor/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,7 +368,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
