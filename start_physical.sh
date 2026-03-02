@@ -25,7 +25,7 @@ DJ="/tmp/omc-devices.$$.json"
 trap 'rm -f "$DJ"' EXIT
 xcrun devicectl list devices --json-output "$DJ" >/dev/null
 
-JQ_CONNECTED='.result.devices[] | select(.connectionProperties.tunnelState == "connected")'
+JQ_CONNECTED='.result.devices[] | select(.connectionProperties.tunnelState == "connected" or .connectionProperties.pairingState == "paired")'
 
 if [[ -z "${DEVICE_QUERY:-}" ]]; then
   read -r DEVICE_NAME DEVICE_UDID DEVICE_ID < <(
