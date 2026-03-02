@@ -20,6 +20,7 @@
 		AA000000000000000000000B /* OneMinuteColorControl.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000D /* OneMinuteColorControl.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA000000000000000000000C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000F /* Assets.xcassets */; };
 		AA000000000000000000000D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = VV0000000000000000000001 /* InfoPlist.strings */; };
+		AA000000000000000000000E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = VV0000000000000000000002 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		BB000000000000000000000F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB0000000000000000000010 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BB0000000000000000000011 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BB0000000000000000000012 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BB0000000000000000000013 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXVariantGroup section */
@@ -74,6 +77,15 @@
 				BB0000000000000000000011 /* en-GB */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		VV0000000000000000000002 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB0000000000000000000012 /* en */,
+				BB0000000000000000000013 /* en-GB */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -118,6 +130,7 @@
 				BB0000000000000000000004 /* Assets.xcassets */,
 				BB0000000000000000000005 /* Info.plist */,
 				VV0000000000000000000001 /* InfoPlist.strings */,
+				VV0000000000000000000002 /* Localizable.strings */,
 			);
 			path = OneMinuteColor;
 			sourceTree = "<group>";
@@ -226,6 +239,7 @@
 			files = (
 				AA0000000000000000000003 /* Assets.xcassets in Resources */,
 				AA000000000000000000000D /* InfoPlist.strings in Resources */,
+				AA000000000000000000000E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

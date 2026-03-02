@@ -1,0 +1,16 @@
+"app_title" = "One Minute Colour";
+"install_button" = "Install One Minute Colour";
+"run_button" = "Run One Minute Colour";
+"step_install" = "Install";
+"step_control_center" = "Add to Control Centre";
+"carousel_longpress" = "Long press Control Centre";
+"carousel_addcontrol" = "Tap + Add a Control";
+"carousel_search" = "Search for Shortcuts";
+"carousel_find" = "Find One Minute Colour";
+"status_install_prompt" = "Install in Shortcuts, then return to this app.";
+"status_installed" = "Installed! You can now add it to Control Centre.";
+"status_ready" = "Ready. Add it to Control Centre from Shortcuts.";
+"status_canceled" = "Shortcut cancelled.";
+"status_not_available" = "Shortcut not available. Tap Install One Minute Colour.";
+"status_could_not_start" = "Could not start shortcut. Install One Minute Colour first.";
+"status_running" = "Running One Minute Colour…";

@@ -2,6 +2,12 @@ import AppIntents
 import SwiftUI
 import WidgetKit
 
+private var localShortcutName: String {
+    guard let region = Locale.current.language.region?.identifier else { return "One Minute Color" }
+    let british = ["GB", "AU", "NZ", "IE", "ZA", "IN"].contains(region)
+    return british ? "One Minute Colour" : "One Minute Color"
+}
+
 struct StartOneMinuteColorControl: ControlWidget {
     static let kind = "com.ramseykhalaf.oneminutecolor.start-one-minute-color"
 
@@ -10,7 +16,7 @@ struct StartOneMinuteColorControl: ControlWidget {
             ControlWidgetButton(
                 action: StartOneMinuteColorControlIntent(),
                 label: {
-                    Text("One Minute Color")
+                    Text(localShortcutName)
                 },
                 actionLabel: { _ in
                     Image("OneMinuteColorControlIcon")
@@ -19,8 +25,8 @@ struct StartOneMinuteColorControl: ControlWidget {
                 }
             )
         }
-        .displayName("One Minute Color")
-        .description("Run One Minute Color from Control Center.")
+        .displayName(LocalizedStringResource(stringLiteral: localShortcutName))
+        .description("Run \(localShortcutName) from Control Center.")
     }
 }
 
@@ -29,7 +35,7 @@ struct StartOneMinuteColorControlIntent: AppIntent {
     static let description = IntentDescription("Runs the One Minute Color shortcut.")
 
     func perform() async throws -> some IntentResult & OpensIntent {
-        guard let url = shortcutRunURL(shortcutName: "One Minute Color") else {
+        guard let url = shortcutRunURL(shortcutName: localShortcutName) else {
             throw NSError(domain: "OneMinuteColorControl", code: 1)
         }
 

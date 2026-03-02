@@ -3,14 +3,14 @@ import SwiftUI
 private struct CarouselStep: Identifiable {
     let id: Int
     let image: String
-    let caption: String
+    let caption: LocalizedStringKey
 }
 
 private let carouselSteps: [CarouselStep] = [
-    CarouselStep(id: 0, image: "Step-LongPress", caption: "Long press Control Centre"),
-    CarouselStep(id: 1, image: "Step-AddControl", caption: "Tap + Add a Control"),
-    CarouselStep(id: 2, image: "Step-SearchShortcuts", caption: "Search for Shortcuts"),
-    CarouselStep(id: 3, image: "Step-FindShortcut", caption: "Find One Minute Colour"),
+    CarouselStep(id: 0, image: "Step-LongPress", caption: "carousel_longpress"),
+    CarouselStep(id: 1, image: "Step-AddControl", caption: "carousel_addcontrol"),
+    CarouselStep(id: 2, image: "Step-SearchShortcuts", caption: "carousel_search"),
+    CarouselStep(id: 3, image: "Step-FindShortcut", caption: "carousel_find"),
 ]
 
 struct ContentView: View {
@@ -25,23 +25,21 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 32) {
-                Text("One Minute Color")
+                Text("app_title")
                     .font(.system(size: 34, weight: .heavy, design: .rounded))
                     .multilineTextAlignment(.center)
                     .padding(.top, 48)
 
-                // Step 1 – Install
-                stepSection(number: 1, title: "Install") {
+                stepSection(number: 1, title: String(localized: "step_install")) {
                     Button(action: openInstallShortcut) {
-                        Text("Install One Minute Color")
+                        Text("install_button")
                             .font(.system(size: 20, weight: .bold, design: .rounded))
                             .frame(maxWidth: .infinity, minHeight: 56)
                     }
                     .buttonStyle(.borderedProminent)
                 }
 
-                // Step 2 – Add to Control Centre
-                stepSection(number: 2, title: "Add to Control Centre") {
+                stepSection(number: 2, title: String(localized: "step_control_center")) {
                     TabView {
                         ForEach(carouselSteps) { step in
                             VStack(spacing: 12) {
@@ -65,9 +63,8 @@ struct ContentView: View {
                 Divider()
                     .padding(.horizontal, 24)
 
-                // Run button (fallback)
                 Button(action: runShortcut) {
-                    Label("Run One Minute Color", systemImage: "play.fill")
+                    Label("run_button", systemImage: "play.fill")
                         .font(.system(size: 17, weight: .semibold, design: .rounded))
                         .frame(maxWidth: .infinity, minHeight: 48)
                 }
@@ -89,7 +86,7 @@ struct ContentView: View {
             guard phase == .active, pendingInstallReturn else { return }
             pendingInstallReturn = false
             storedPrimaryButtonMode = "run"
-            statusMessage = "Installed! You can now add it to Control Centre."
+            statusMessage = String(localized: "status_installed")
         }
     }
 
@@ -114,7 +111,7 @@ struct ContentView: View {
         _ = actionHandler.installShortcutButtonTapped { url in
             openURL(url)
         }
-        statusMessage = "Install in Shortcuts, then return to this app."
+        statusMessage = String(localized: "status_install_prompt")
     }
 
     private func runShortcut() {
@@ -124,9 +121,9 @@ struct ContentView: View {
 
         if url == nil {
             storedPrimaryButtonMode = "install"
-            statusMessage = "Could not start shortcut. Install One Minute Color first."
+            statusMessage = String(localized: "status_could_not_start")
         } else {
-            statusMessage = "Running One Minute Color…"
+            statusMessage = String(localized: "status_running")
         }
     }
 
@@ -141,12 +138,12 @@ struct ContentView: View {
         switch event {
         case "success":
             storedPrimaryButtonMode = "run"
-            statusMessage = "Ready. Add it to Control Centre from Shortcuts."
+            statusMessage = String(localized: "status_ready")
         case "cancel":
-            statusMessage = "Shortcut canceled."
+            statusMessage = String(localized: "status_canceled")
         case "error":
             storedPrimaryButtonMode = "install"
-            statusMessage = "Shortcut not available. Tap Install One Minute Color."
+            statusMessage = String(localized: "status_not_available")
         default:
             break
         }
