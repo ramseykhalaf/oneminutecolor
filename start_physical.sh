@@ -42,11 +42,8 @@ fi
 
 echo "Device: $DEVICE_NAME ($DEVICE_UDID)"
 
-echo "Uninstalling..."
-xcrun devicectl device uninstall app --device "$DEVICE_ID" "$BUNDLE_ID" >/dev/null 2>&1 || true
-
-echo "Clean building..."
-xcodebuild -project "$PROJECT" -scheme "$SCHEME" -destination "id=$DEVICE_UDID" -derivedDataPath "$DD" clean build >"$LOG" 2>&1 \
+echo "Building (Debug)..."
+xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration Debug -destination "id=$DEVICE_UDID" -derivedDataPath "$DD" build >"$LOG" 2>&1 \
   || { echo "Build failed. Tail of $LOG:" >&2; tail -n 80 "$LOG" >&2; exit 1; }
 
 APP="$(find "$DD/Build/Products" -maxdepth 2 -type d -name '*.app' | head -n1)"
