@@ -19,6 +19,7 @@
 		AA000000000000000000000A /* OneMinuteColorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000C /* OneMinuteColorControl.swift */; };
 		AA000000000000000000000B /* OneMinuteColorControl.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000D /* OneMinuteColorControl.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA000000000000000000000C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000F /* Assets.xcassets */; };
+		AA000000000000000000000D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = VV0000000000000000000001 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,21 @@
 		BB000000000000000000000D /* OneMinuteColorControl.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneMinuteColorControl.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB000000000000000000000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB000000000000000000000F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB0000000000000000000010 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BB0000000000000000000011 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXVariantGroup section */
+		VV0000000000000000000001 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB0000000000000000000010 /* en */,
+				BB0000000000000000000011 /* en-GB */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CC0000000000000000000001 /* Frameworks */ = {
@@ -102,6 +117,7 @@
 				BB000000000000000000000A /* Intents/OneMinuteColorAppShortcuts.swift */,
 				BB0000000000000000000004 /* Assets.xcassets */,
 				BB0000000000000000000005 /* Info.plist */,
+				VV0000000000000000000001 /* InfoPlist.strings */,
 			);
 			path = OneMinuteColor;
 			sourceTree = "<group>";
@@ -189,6 +205,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"en-GB",
 				Base,
 			);
 			mainGroup = DD0000000000000000000001;
@@ -208,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA0000000000000000000003 /* Assets.xcassets in Resources */,
+				AA000000000000000000000D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
